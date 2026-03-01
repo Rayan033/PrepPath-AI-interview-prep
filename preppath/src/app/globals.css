@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 142 71% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 0 0% 20%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 142 76% 96%;
+    --accent-foreground: 142 71% 30%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 142 71% 45%;
+    --chart-1: 142 71% 45%;
+    --chart-2: 220 70% 50%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.5rem;
+    --sidebar: 0 0% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@keyframes orb-idle {
+  0%, 100% {
+    box-shadow: 0 0 30px 0 hsl(142 71% 45% / 0.15);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 50px 10px hsl(142 71% 45% / 0.25);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes orb-speaking {
+  0%, 100% {
+    box-shadow: 0 0 30px 5px hsl(142 71% 45% / 0.3);
+    transform: scale(1);
+  }
+  25% {
+    box-shadow: 0 0 50px 15px hsl(142 71% 45% / 0.5);
+    transform: scale(1.06);
+  }
+  75% {
+    box-shadow: 0 0 40px 10px hsl(142 71% 45% / 0.4);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes orb-listening {
+  0%, 100% {
+    box-shadow: 0 0 30px 5px hsl(142 71% 45% / 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 50px 15px hsl(142 71% 45% / 0.5);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes orb-processing {
+  0% {
+    box-shadow: 0 0 20px 5px hsl(142 71% 45% / 0.2);
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    box-shadow: 0 0 30px 10px hsl(142 71% 45% / 0.3);
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+.orb-idle {
+  animation: orb-idle 3s ease-in-out infinite;
+}
+.orb-speaking {
+  animation: orb-speaking 1s ease-in-out infinite;
+}
+.orb-listening {
+  animation: orb-listening 1.5s ease-in-out infinite;
+}
+.orb-processing {
+  animation: orb-processing 2s linear infinite;
+}
